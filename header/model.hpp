@@ -14,19 +14,19 @@
 
 class model {
 
-    boost::numeric::ublas::matrix<double > hidden_layer_1;
-    boost::numeric::ublas::matrix<double > hidden_layer_2;
-    boost::numeric::ublas::matrix<double > bottle_neck_layer;
-    boost::numeric::ublas::matrix<double > hidden_layer_3;
-    boost::numeric::ublas::matrix<double > hidden_layer_4;
-    boost::numeric::ublas::matrix<double > hidden_layer_5;
-    boost::numeric::ublas::matrix<double > output_layer;
+    boost::numeric::ublas::matrix<long double > hidden_layer_1;
+    boost::numeric::ublas::matrix<long double > hidden_layer_2;
+    boost::numeric::ublas::matrix<long double > bottle_neck_layer;
+    boost::numeric::ublas::matrix<long double > hidden_layer_3;
+    boost::numeric::ublas::matrix<long double > hidden_layer_4;
+    boost::numeric::ublas::matrix<long double > hidden_layer_5;
+    boost::numeric::ublas::matrix<long double > output_layer;
 
 public:
     model();
 
 public:
-    boost::numeric::ublas::matrix<double > forward(boost::numeric::ublas::matrix<double >& input);
+    boost::numeric::ublas::matrix<long double > forward(boost::numeric::ublas::matrix<long double >& input);
 
 };
 

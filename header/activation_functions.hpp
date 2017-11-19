@@ -34,7 +34,7 @@ public:
     {
         const auto n = A.data() + A.num_elements();
         for (auto i = A.data(); i != n; ++i){
-            *i = 1 / (1 + exp(-1 *i));
+            *i = 1 / (1 + expl(-1 *i));
         }
     }
 
@@ -44,7 +44,7 @@ public:
     {
         const auto n = A.data() + A.num_elements();
         for (auto i = A.data(); i != n; ++i){
-            *i = (2*exp(-1 *i) - 1)/(2*exp(-1 *i) + 1);
+            *i = (2*expl(-1 *i) - 1)/(2*expl(-1 *i) + 1);
         }
     }
 
@@ -68,7 +68,7 @@ public:
     {
         for(unsigned i = 0; i < M.size1(); ++ i){
             for (unsigned j = 0; j < M.size2(); ++j) {
-                    M(i, j) = 1 / (1 + exp(-1 * M(i, j)));
+                    M(i, j) = 1 / (1 + expl(-1 * M(i, j)));
             }
         }
 
@@ -80,7 +80,7 @@ public:
     {
         for(unsigned i = 0; i < M.size1(); ++ i){
             for(unsigned j = 0; j < M.size2(); ++ j) {
-                M(i, j) = (2 * exp(-1 * M(i, j)) - 1) / (2 * exp(-1 * M(i, j)) + 1);
+                M(i, j) = (2 * expl(-1 * M(i, j)) - 1) / (2 * expl(-1 * M(i, j)) + 1);
             }
         }
     }
