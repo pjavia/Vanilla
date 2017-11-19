@@ -10,23 +10,23 @@
 class pretty_print
 {
     
-    public:
-        template <typename Array>
-        void print(std::ostream& os, const Array& A)
-        {
-            typename Array::const_iterator i;
-            os << "[";
-            for (i = A.begin(); i != A.end(); ++i) {
-            print(os, *i);
-            if (boost::next(i) != A.end())
-                os << ',';
-            }
-            os << "]";
+public:
+    template <typename Array>
+    void print(std::ostream& os, const Array& A)
+    {
+        typename Array::const_iterator i;
+        os << "[";
+        for (i = A.begin(); i != A.end(); ++i) {
+        print(os, *i);
+        if (boost::next(i) != A.end())
+            os << ',';
         }
-        void print(std::ostream& os, const double& x)
-        {
-            os << x;
-        }
+        os << "]";
+    }
+    void print(std::ostream& os, const double& x)
+    {
+        os << x;
+    }
 };
 
 #endif
