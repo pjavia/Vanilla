@@ -9,41 +9,25 @@
 #include "../header/init.hpp"
 #include <vector>
 #include <string>
-#include <map>
+#include <unordered_map>
+#include <unordered_map>
 
 class model {
 
-private:
-    std::vector<unsigned int> layers;
-    std::vector<std::string> non_linearity;
-    std::vector<boost::numeric::ublas::matrix*> network;
-    std::map<unsigned int, boost::numeric::ublas::matrix*> weights;
+    boost::numeric::ublas::matrix<double > hidden_layer_1;
+    boost::numeric::ublas::matrix<double > hidden_layer_2;
+    boost::numeric::ublas::matrix<double > bottle_neck_layer;
+    boost::numeric::ublas::matrix<double > hidden_layer_3;
+    boost::numeric::ublas::matrix<double > hidden_layer_4;
+    boost::numeric::ublas::matrix<double > hidden_layer_5;
+    boost::numeric::ublas::matrix<double > output_layer;
 
 public:
-    void model(int input_layer_neurons)
-    {
-        layers.push_back(input_layer_neurons);
-        non_linearity.push_back("None");
-    }
+    model();
 
 public:
-    void append_linear_layer(const unsigned int hidden_neurons, const std::string& act_func)
-    {
+    boost::numeric::ublas::matrix<double > forward(boost::numeric::ublas::matrix<double >& input);
 
-        layers.push_back(hidden_neurons);
-        non_linearity.push_back(act_func);
-    }
-
-public:
-    template <typename T>
-    void forward_propagation(){
-
-        for(int i = 0; i < layers.size()-1; i++){
-
-            weights[i] = new boost::numeric::ublas::matrix<T>(layers[i], layers[i+1]);
-
-        }
-    }
 };
 
 

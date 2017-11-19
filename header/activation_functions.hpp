@@ -71,6 +71,7 @@ public:
                     M(i, j) = 1 / (1 + exp(-1 * M(i, j)));
             }
         }
+
     }
 
 public:
