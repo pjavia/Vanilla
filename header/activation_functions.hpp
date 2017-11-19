@@ -2,8 +2,8 @@
 // Created by peri on 11/17/17.
 //
 
-#ifndef ACTIVATION_FUNCTIONS_HPP
-#define ACTIVATION_FUNCTIONS_HPP
+#ifndef VANILLA_ACTIVATION_FUNCTIONS_HPP
+#define VANILLA_ACTIVATION_FUNCTIONS_HPP
 
 #include <cmath>
 #include <iostream>

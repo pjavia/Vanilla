@@ -1,5 +1,5 @@
-#ifndef INIT_H
-#define INIT_H
+#ifndef VANILLA_INIT_H
+#define VANILLA_INIT_H
 
 #include <iostream>
 #include <boost/multi_array.hpp>

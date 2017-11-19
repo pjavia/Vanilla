@@ -1,5 +1,5 @@
-#ifndef PRETTY_PRINT_H
-#define PRETTY_PRINT_H
+#ifndef VANILLA_PRETTY_PRINT_H
+#define VANILLA_PRETTY_PRINT_H
 
 #include <iostream>
 #include <boost/multi_array.hpp>
