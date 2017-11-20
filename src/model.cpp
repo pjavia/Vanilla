@@ -8,6 +8,7 @@
 model::model() {
 
     init initialize;
+
     hidden_layer_1.resize(784, 256);
     initialize.normal(hidden_layer_1);
     hidden_layer_2.resize(256, 128);
@@ -29,21 +30,25 @@ boost::numeric::ublas::matrix<long double > model::forward(boost::numeric::ublas
 
     activation_functions non_linearity;
 
-    boost::numeric::ublas::matrix<long double> layer1 = boost::numeric::ublas::prod(input, hidden_layer_1);
+    boost::numeric::ublas::matrix<long double> layer1 = boost::numeric::ublas::prec_prod(input, hidden_layer_1);
     non_linearity.ReLu(layer1);
-    boost::numeric::ublas::matrix<long double> layer2 = (boost::numeric::ublas::prod(layer1, hidden_layer_2));
+    boost::numeric::ublas::matrix<long double> layer2 = boost::numeric::ublas::prec_prod(layer1, hidden_layer_2);
     non_linearity.ReLu(layer2);
-    boost::numeric::ublas::matrix<long double> layer3 = boost::numeric::ublas::prod(layer2, bottle_neck_layer);
+    boost::numeric::ublas::matrix<long double> layer3 = boost::numeric::ublas::prec_prod(layer2, bottle_neck_layer);
     non_linearity.ReLu(layer3);
-    boost::numeric::ublas::matrix<long double> layer4 = boost::numeric::ublas::prod(layer3, hidden_layer_3);
+    boost::numeric::ublas::matrix<long double> layer4 = boost::numeric::ublas::prec_prod(layer3, hidden_layer_3);
     non_linearity.ReLu(layer4);
-    boost::numeric::ublas::matrix<long double> layer5 = boost::numeric::ublas::prod(layer4, hidden_layer_4);
+    boost::numeric::ublas::matrix<long double> layer5 = boost::numeric::ublas::prec_prod(layer4, hidden_layer_4);
     non_linearity.ReLu(layer5);
-    boost::numeric::ublas::matrix<long double> layer6 = boost::numeric::ublas::prod(layer5, hidden_layer_5);
+    boost::numeric::ublas::matrix<long double> layer6 = boost::numeric::ublas::prec_prod(layer5, hidden_layer_5);
     non_linearity.ReLu(layer6);
-    boost::numeric::ublas::matrix<long double> layer7 = boost::numeric::ublas::prod(layer6, output_layer);
+    boost::numeric::ublas::matrix<long double> layer7 = boost::numeric::ublas::prec_prod(layer6, output_layer);
     non_linearity.sigmoid(layer7);
 
     return layer7;
+
+}
+
+void model::backward(boost::numeric::ublas::matrix<long double >&) {
 
 }

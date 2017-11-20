@@ -34,7 +34,14 @@ public:
     {
         const auto n = A.data() + A.num_elements();
         for (auto i = A.data(); i != n; ++i){
-            *i = 1 / (1 + expl(-1 *i));
+            auto x = *i;
+            if(x < 0){
+                *i = expl(x) / (1.0 + expl(x));
+            }
+            else{
+                *i = 1.0 / (1.0 + expl(-1.0*x));
+            }
+
         }
     }
 
@@ -68,7 +75,13 @@ public:
     {
         for(unsigned i = 0; i < M.size1(); ++ i){
             for (unsigned j = 0; j < M.size2(); ++j) {
-                    M(i, j) = 1 / (1 + expl(-1 * M(i, j)));
+                auto x = M(i, j);
+                if(x < 0){
+                    M(i, j) = expl(x) / (1.0 + expl(x));
+                }
+                else {
+                    M(i, j) = 1.0 / (1.0 + expl(-1.0*x));
+                }
             }
         }
 

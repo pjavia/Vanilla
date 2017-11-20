@@ -12,7 +12,7 @@
 #include <boost/random/variate_generator.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
-
+#include <ctime>
 
 class init
 {
@@ -42,7 +42,7 @@ public:
     void normal(Array& A)
     {
         boost::mt19937 gene;
-        boost::variate_generator<boost::mt19937, boost::normal_distribution<> > gen(gene, boost::normal_distribution<>(0, 1));
+        boost::variate_generator<boost::mt19937, boost::normal_distribution<long double> > gen(gene, boost::normal_distribution<long double>(0.01, 0.02));
         const auto n = A.data() + A.num_elements();
         for (auto i = A.data(); i != n; ++i){
             *i = gen();
@@ -76,7 +76,7 @@ public:
     void normal(boost::numeric::ublas::matrix<T>& M)
     {
         boost::mt19937 gene;
-        boost::variate_generator<boost::mt19937, boost::normal_distribution<> > gen(gene, boost::normal_distribution<>(0, 1));
+        boost::variate_generator<boost::mt19937, boost::normal_distribution<long double > > gen(gene, boost::normal_distribution<long double>(0.01, 0.02));
         for (unsigned i = 0; i < M.size1(); ++ i){
             for (unsigned j = 0; j < M.size2(); ++ j){
                 M(i, j) = gen();
