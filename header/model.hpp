@@ -7,27 +7,36 @@
 
 #include "../header/activation_functions.hpp"
 #include "../header/init.hpp"
-#include <vector>
-#include <string>
-#include <unordered_map>
-#include <unordered_map>
+#include <boost/numeric/ublas/vector.hpp>
+#include <boost/numeric/ublas/io.hpp>
+
 
 class model {
 
-    boost::numeric::ublas::matrix<long double > hidden_layer_1;
-    boost::numeric::ublas::matrix<long double > hidden_layer_2;
-    boost::numeric::ublas::matrix<long double > bottle_neck_layer;
-    boost::numeric::ublas::matrix<long double > hidden_layer_3;
-    boost::numeric::ublas::matrix<long double > hidden_layer_4;
-    boost::numeric::ublas::matrix<long double > hidden_layer_5;
-    boost::numeric::ublas::matrix<long double > output_layer;
+    boost::numeric::ublas::matrix<long double > W_1;
+    boost::numeric::ublas::matrix<long double > W_2;
+    boost::numeric::ublas::matrix<long double > W_b;
+    boost::numeric::ublas::matrix<long double > W_3;
+    boost::numeric::ublas::matrix<long double > W_4;
+    boost::numeric::ublas::matrix<long double > W_5;
+    boost::numeric::ublas::matrix<long double > W_o;
 
-    //boost::numeric::ublas::matrix<long double > bias_layer_1;
-    //boost::numeric::ublas::matrix<long double > bias_layer_2;
-    //boost::numeric::ublas::matrix<long double > bias_bottle_neck_layer;
-    //boost::numeric::ublas::matrix<long double > bias_layer_3;
-    //boost::numeric::ublas::matrix<long double > bias_layer_4;
-    //boost::numeric::ublas::matrix<long double > bias_layer_5;
+    boost::numeric::ublas::matrix<long double > b_1;
+    boost::numeric::ublas::matrix<long double > b_2;
+    boost::numeric::ublas::matrix<long double > b_3;
+    boost::numeric::ublas::matrix<long double > b_4;
+    boost::numeric::ublas::matrix<long double > b_5;
+
+    boost::numeric::ublas::matrix<long double> h1;
+    boost::numeric::ublas::matrix<long double> h2;
+    boost::numeric::ublas::matrix<long double> hb;
+    boost::numeric::ublas::matrix<long double> h3;
+    boost::numeric::ublas::matrix<long double> h4;
+    boost::numeric::ublas::matrix<long double> h5;
+    boost::numeric::ublas::matrix<long double> p;
+
+    boost::numeric::ublas::matrix<long double> x;
+
 
 
 public:
@@ -37,7 +46,7 @@ public:
     boost::numeric::ublas::matrix<long double > forward(boost::numeric::ublas::matrix<long double >& input);
 
 public:
-    void backward();
+    void backward(boost::numeric::ublas::matrix<long double >& truth, boost::numeric::ublas::matrix<long double >& prediction);
 };
 
 

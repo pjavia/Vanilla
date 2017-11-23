@@ -16,17 +16,6 @@
 
 class init
 {
-    
-public:
-    template <typename Array>
-    void zeros(Array& A)
-    {
-        const auto sup(A.data() + A.num_elements());
-        for (auto i(A.data()); i != sup; ++i){
-            *i = 0.0;
-        }
-    }
-
 public:
     template <typename Array>
     void ones(Array& A)
@@ -49,28 +38,6 @@ public:
         }
     }
 
-public:
-    template <typename T>
-    void ones(boost::numeric::ublas::matrix<T>& M)
-    {
-        for (unsigned i = 0; i < M.size1(); ++ i){
-            for (unsigned j = 0; j < M.size2(); ++ j){
-                M(i, j) = 1;
-            }
-        }
-
-    }
-public:
-    template <typename T>
-    void zeros(boost::numeric::ublas::matrix<T>& M)
-    {
-        for (unsigned i = 0; i < M.size1(); ++ i){
-            for (unsigned j = 0; j < M.size2(); ++ j){
-                M(i, j) = 0;
-            }
-        }
-
-    }
 public:
     template <typename T>
     void normal(boost::numeric::ublas::matrix<T>& M)

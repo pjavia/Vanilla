@@ -8,7 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY build)
 
 
-set(SOURCE_FILES src/main.cpp header/pretty_print.hpp header/init.hpp header/activation_functions.hpp header/model.hpp src/model.cpp)
+set(SOURCE_FILES src/main.cpp header/pretty_print.hpp header/init.hpp header/activation_functions.hpp header/model.hpp src/model.cpp src/train.cpp header/train.hpp)
 find_package(Boost 1.65.1 COMPONENTS)
 
 if(Boost_FOUND)
